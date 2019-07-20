@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <AssemblyName>Bartdebever.Patterns</AssemblyName>
+    <RootNamespace>Bartdebever.Patterns</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Authors>Bart de Bever</Authors>
+    <Company>FightCore</Company>
+    <PackageProjectUrl>https://github.com/bartdebever/patterns</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bartdebever/patterns.git</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>EntityFramework Patterns Repository Service</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>The Repository and Service pattern implemented for both Entity Framework 6 and Core</Description>
+    <Copyright>Bart de Bever 2019</Copyright>
+  </PropertyGroup>
+
+<!--Defnines variables to define which framework is being used-->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45'">
+    <DefineConstants>NET45;NETFULL</DefineConstants>
+  </PropertyGroup>
+
+  <!--Dependencies per for .NET Standard-->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+  </ItemGroup>
+
+  <!--Dependencies per for .NET Framework-->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
