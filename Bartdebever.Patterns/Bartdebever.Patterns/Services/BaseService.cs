@@ -13,66 +13,84 @@ namespace Bartdebever.Patterns.Services
     {
         protected readonly TRepository Repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseService{TEntity,TKey,TRepository}"/> class.
+        /// </summary>
+        /// <param name="repository">The repository used to do calls.</param>
         public BaseService(TRepository repository)
         {
             Repository = repository;
         }
 
+        /// <inheritdoc />
         public virtual TEntity Find(Expression<Func<TEntity, bool>> query)
         {
             return Repository.Find(query);
         }
 
+        /// <inheritdoc />
         public virtual Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> query)
         {
             return Repository.FindAsync(query);
         }
 
+        /// <inheritdoc />
         public virtual IEnumerable<TEntity> FindRange(Expression<Func<TEntity, bool>> query)
         {
             return Repository.FindRange(query);
         }
 
+        /// <inheritdoc />
         public virtual Task<List<TEntity>> FindRangeAsync(Expression<Func<TEntity, bool>> query)
         {
             return Repository.FindRangeAsync(query);
         }
 
+        /// <inheritdoc />
         public virtual IEnumerable<TEntity> GetAll()
         {
             return Repository.GetAll();
         }
 
+        /// <inheritdoc />
         public virtual Task<List<TEntity>> GetAllAsync()
         {
             return Repository.GetAllAsync();
         }
 
+        /// <inheritdoc />
         public virtual TEntity GetById(TKey id)
         {
             return Repository.GetById(id);
         }
 
+        /// <inheritdoc />
         public virtual Task<TEntity> GetByIdAsync(TKey id)
         {
             return Repository.GetByIdAsync(id);
         }
 
+        /// <inheritdoc />
         public virtual TEntity Add(TEntity entity)
         {
             return Repository.Add(entity);
         }
+
 #if NETSTANDARD
+        /// <inheritdoc />
         public virtual Task<TEntity> AddAsync(TEntity entity)
         {
             return Repository.AddAsync(entity);
         }
 
+        /// <inheritdoc />
         public virtual TEntity Update(TEntity entity)
         {
             return Repository.Update(entity);
         }
 #endif
+
+        /// <inheritdoc />
         public virtual void Remove(TEntity entity)
         {
             Repository.Remove(entity);

@@ -12,6 +12,7 @@ namespace Bartdebever.Patterns.Services
         where TEntity : BaseEntity
         where TRepository : IRepository<TEntity, long>
     {
+        /// <inheritdoc />
         protected EntityService(TRepository repository) : base(repository)
         {
         }
