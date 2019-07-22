@@ -11,71 +11,71 @@ namespace Bartdebever.Patterns.Services
         where TEntity : class, IEntity<TKey>
         where TRepository : IRepository<TEntity, TKey>
     {
-        protected readonly TRepository _repository;
+        protected readonly TRepository Repository;
 
         public BaseService(TRepository repository)
         {
-            _repository = repository;
+            Repository = repository;
         }
 
-        public TEntity Find(Expression<Func<TEntity, bool>> query)
+        public virtual TEntity Find(Expression<Func<TEntity, bool>> query)
         {
-            return _repository.Find(query);
+            return Repository.Find(query);
         }
 
-        public Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> query)
+        public virtual Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> query)
         {
-            return _repository.FindAsync(query);
+            return Repository.FindAsync(query);
         }
 
-        public IEnumerable<TEntity> FindRange(Expression<Func<TEntity, bool>> query)
+        public virtual IEnumerable<TEntity> FindRange(Expression<Func<TEntity, bool>> query)
         {
-            return _repository.FindRange(query);
+            return Repository.FindRange(query);
         }
 
-        public Task<List<TEntity>> FindRangeAsync(Expression<Func<TEntity, bool>> query)
+        public virtual Task<List<TEntity>> FindRangeAsync(Expression<Func<TEntity, bool>> query)
         {
-            return _repository.FindRangeAsync(query);
+            return Repository.FindRangeAsync(query);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
-            return _repository.GetAll();
+            return Repository.GetAll();
         }
 
-        public Task<List<TEntity>> GetAllAsync()
+        public virtual Task<List<TEntity>> GetAllAsync()
         {
-            return _repository.GetAllAsync();
+            return Repository.GetAllAsync();
         }
 
-        public TEntity GetById(TKey id)
+        public virtual TEntity GetById(TKey id)
         {
-            return _repository.GetById(id);
+            return Repository.GetById(id);
         }
 
-        public Task<TEntity> GetByIdAsync(TKey id)
+        public virtual Task<TEntity> GetByIdAsync(TKey id)
         {
-            return _repository.GetByIdAsync(id);
+            return Repository.GetByIdAsync(id);
         }
 
-        public TEntity Add(TEntity entity)
+        public virtual TEntity Add(TEntity entity)
         {
-            return _repository.Add(entity);
+            return Repository.Add(entity);
         }
 #if NETSTANDARD
-        public Task<TEntity> AddAsync(TEntity entity)
+        public virtual Task<TEntity> AddAsync(TEntity entity)
         {
-            return _repository.AddAsync(entity);
+            return Repository.AddAsync(entity);
         }
 
-        public TEntity Update(TEntity entity)
+        public virtual TEntity Update(TEntity entity)
         {
-            return _repository.Update(entity);
+            return Repository.Update(entity);
         }
 #endif
-        public void Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
-            _repository.Remove(entity);
+            Repository.Remove(entity);
         }
     }
 }
