@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bartdebever.Patterns.Models;
+﻿using Bartdebever.Patterns.Models;
 #if NETSTANDARD
 using Microsoft.EntityFrameworkCore;
 #endif
@@ -16,6 +11,12 @@ namespace Bartdebever.Patterns.Repositories
     public abstract class EntityRepository<TEntity> : BaseRepository<TEntity, long>
         where TEntity : BaseEntity
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityRepository{TEntity}"/> class.
+        /// </summary>
+        /// <param name="context">
+        /// The database context to be used to gather entities.
+        /// </param>
         public EntityRepository(DbContext context) : base(context)
         {
         }

@@ -15,6 +15,7 @@
     <Description>The Repository and Service pattern implemented for both Entity Framework 6 and Core</Description>
     <Copyright>Bart de Bever 2019</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 <!--Defnines variables to define which framework is being used-->
